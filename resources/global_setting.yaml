@@ -1,0 +1,11 @@
+###Set web and browsers
+URL_TODOLIST                      : https://abhigyank.github.io/To-Do-List/
+BROWSER                           : chrome
+
+#timeout
+TIMEOUT:
+  GLOBAL                          : 90s
+  LARGE                           : 200s
+  MEDIUM                          : 20s
+  SMALL                           : 15s
+  MINI                            : 5s
