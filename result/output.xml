@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.1 on win32)" generated="20230409 11:30:45.213" rpa="false" schemaversion="3">
+<suite id="s1" name="Tests" source="D:\Todo List website\tests">
+<suite id="s1-s1" name="TC E2E todolist" source="D:\Todo List website\tests\TC_E2E_todolist.robot">
+<test id="s1-s1-t1" name="TC_E2E : Verify landing to website to do list successfully" line="8">
+<kw name="Create List" library="BuiltIn">
+<var>${TODO_LIST}</var>
+<arg>${TODOLISTDATA['TODOLIST1']}</arg>
+<arg>${TODOLISTDATA['TODOLIST2']}</arg>
+<arg>${TODOLISTDATA['TODOLIST3']}</arg>
+<arg>${TODOLISTDATA['TODOLIST4']}</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230409 11:30:45.605" level="INFO">${TODO_LIST} = ['Daily meeting with Dev', 'Implement code automate', 'Tracking bug', 'Design test case']</msg>
+<status status="PASS" starttime="20230409 11:30:45.603" endtime="20230409 11:30:45.605"/>
+</kw>
+<kw name="Open to do list website and maximize" library="common_keywords">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL_TODOLIST}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230409 11:30:45.606" level="INFO">Opening browser 'chrome' to base url 'https://abhigyank.github.io/To-Do-List/'.</msg>
+<status status="PASS" starttime="20230409 11:30:45.605" endtime="20230409 11:30:47.486"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230409 11:30:47.486" endtime="20230409 11:30:47.611"/>
+</kw>
+<status status="PASS" starttime="20230409 11:30:45.605" endtime="20230409 11:30:47.611"/>
+</kw>
+<kw name="Verify landing to website successfully" library="add_item_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${TODOLIST.LOGO.FRAME}</arg>
+<arg>${TIMEOUT['GLOBAL']}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230409 11:30:47.612" endtime="20230409 11:30:47.631"/>
+</kw>
+<status status="PASS" starttime="20230409 11:30:47.612" endtime="20230409 11:30:47.631"/>
+</kw>
+<kw name="Verify can add todo list" library="add_item_page">
+<arg>${TODO_LIST}</arg>
+<kw name="Get Length" library="BuiltIn">
+<var>${count_todo_list}</var>
+<arg>${TODO_LIST}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20230409 11:30:47.632" level="INFO">Length is 4</msg>
+<msg timestamp="20230409 11:30:47.632" level="INFO">${count_todo_list} = 4</msg>
+<status status="PASS" starttime="20230409 11:30:47.631" endtime="20230409 11:30:47.632"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>0</value>
+<value>${count_todo_list}</value>
+<iter>
+<var name="${i}">0</var>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${ADDITEM.INPUTLIST.TEXTBOX}</arg>
+<arg>${TODO_LIST[${i}]}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230409 11:30:47.633" level="INFO">Typing text 'Daily meeting with Dev' into text field '//input[@id="new-task"]'.</msg>
+<status status="PASS" starttime="20230409 11:30:47.632" endtime="20230409 11:30:47.697"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ADDITEM.ADDLIST.BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230409 11:30:47.697" level="INFO">Clicking element '//button[contains(@class,'mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored')]'.</msg>
+<status status="PASS" starttime="20230409 11:30:47.697" endtime="20230409 11:30:47.726"/>
+</kw>
+<status status="PASS" starttime="20230409 11:30:47.632" endtime="20230409 11:30:47.726"/>
+</iter>
+<iter>
+<var name="${i}">1</var>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${ADDITEM.INPUTLIST.TEXTBOX}</arg>
+<arg>${TODO_LIST[${i}]}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230409 11:30:47.727" level="INFO">Typing text 'Implement code automate' into text field '//input[@id="new-task"]'.</msg>
+<status status="PASS" starttime="20230409 11:30:47.727" endtime="20230409 11:30:47.767"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ADDITEM.ADDLIST.BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230409 11:30:47.768" level="INFO">Clicking element '//button[contains(@class,'mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored')]'.</msg>
+<status status="PASS" starttime="20230409 11:30:47.767" endtime="20230409 11:30:47.785"/>
+</kw>
+<status status="PASS" starttime="20230409 11:30:47.726" endtime="20230409 11:30:47.785"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${ADDITEM.INPUTLIST.TEXTBOX}</arg>
+<arg>${TODO_LIST[${i}]}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230409 11:30:47.786" level="INFO">Typing text 'Tracking bug' into text field '//input[@id="new-task"]'.</msg>
+<status status="PASS" starttime="20230409 11:30:47.785" endtime="20230409 11:30:47.824"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ADDITEM.ADDLIST.BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230409 11:30:47.825" level="INFO">Clicking element '//button[contains(@class,'mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored')]'.</msg>
+<status status="PASS" starttime="20230409 11:30:47.824" endtime="20230409 11:30:47.841"/>
+</kw>
+<status status="PASS" starttime="20230409 11:30:47.785" endtime="20230409 11:30:47.842"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${ADDITEM.INPUTLIST.TEXTBOX}</arg>
+<arg>${TODO_LIST[${i}]}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230409 11:30:47.843" level="INFO">Typing text 'Design test case' into text field '//input[@id="new-task"]'.</msg>
+<status status="PASS" starttime="20230409 11:30:47.842" endtime="20230409 11:30:47.880"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ADDITEM.ADDLIST.BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230409 11:30:47.881" level="INFO">Clicking element '//button[contains(@class,'mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored')]'.</msg>
+<status status="PASS" starttime="20230409 11:30:47.880" endtime="20230409 11:30:47.898"/>
+</kw>
+<status status="PASS" starttime="20230409 11:30:47.842" endtime="20230409 11:30:47.898"/>
+</iter>
+<status status="PASS" starttime="20230409 11:30:47.632" endtime="20230409 11:30:47.898"/>
+</for>
+<status status="PASS" starttime="20230409 11:30:47.631" endtime="20230409 11:30:47.898"/>
+</kw>
+<kw name="Verify can add todo list is correct and show in tab todo Tasks" library="todo_task_page">
+<arg>${TODO_LIST}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${TODOTASK.TODOTAB.TABMENU}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230409 11:30:47.899" level="INFO">Clicking element '//a[contains(@class,'mdl-tabs__tab')][text()="To-Do Tasks"]'.</msg>
+<status status="PASS" starttime="20230409 11:30:47.899" endtime="20230409 11:30:47.930"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${count_todo_list}</var>
+<arg>${TODO_LIST}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20230409 11:30:47.931" level="INFO">Length is 4</msg>
+<msg timestamp="20230409 11:30:47.931" level="INFO">${count_todo_list} = 4</msg>
+<status status="PASS" starttime="20230409 11:30:47.931" endtime="20230409 11:30:47.931"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>${locator_todo_list}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230409 11:30:47.931" level="INFO">${locator_todo_list} = []</msg>
+<status status="PASS" starttime="20230409 11:30:47.931" endtime="20230409 11:30:47.931"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>0</value>
+<value>${count_todo_list}</value>
+<iter>
+<var name="${i}">0</var>
+<kw name="Replace String" library="String">
+<var>${locator.todolist_name}</var>
+<arg>${TODOTASK.TODOLISTNAME.TEXT}</arg>
+<arg>{list_name}</arg>
+<arg>${TODO_LIST[${i}]}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230409 11:30:47.933" level="INFO">${locator.todolist_name} = //div[@id="todo"]//span[contains(@class,'mdl-checkbox__label')][text()="Daily meeting with Dev"]</msg>
+<status status="PASS" starttime="20230409 11:30:47.932" endtime="20230409 11:30:47.933"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${locator_todo_dis}</var>
+<arg>${locator.todolist_name}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230409 11:30:47.950" level="INFO">${locator_todo_dis} = Daily meeting with Dev</msg>
+<status status="PASS" starttime="20230409 11:30:47.933" endtime="20230409 11:30:47.950"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${locator_todo_list}</arg>
+<arg>${locator_todo_dis}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230409 11:30:47.951" endtime="20230409 11:30:47.951"/>
+</kw>
+<status status="PASS" starttime="20230409 11:30:47.932" endtime="20230409 11:30:47.951"/>
+</iter>
+<iter>
+<var name="${i}">1</var>
+<kw name="Replace String" library="String">
+<var>${locator.todolist_name}</var>
+<arg>${TODOTASK.TODOLISTNAME.TEXT}</arg>
+<arg>{list_name}</arg>
+<arg>${TODO_LIST[${i}]}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230409 11:30:47.952" level="INFO">${locator.todolist_name} = //div[@id="todo"]//span[contains(@class,'mdl-checkbox__label')][text()="Implement code automate"]</msg>
+<status status="PASS" starttime="20230409 11:30:47.951" endtime="20230409 11:30:47.952"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${locator_todo_dis}</var>
+<arg>${locator.todolist_name}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230409 11:30:47.967" level="INFO">${locator_todo_dis} = Implement code automate</msg>
+<status status="PASS" starttime="20230409 11:30:47.952" endtime="20230409 11:30:47.967"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${locator_todo_list}</arg>
+<arg>${locator_todo_dis}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230409 11:30:47.967" endtime="20230409 11:30:47.967"/>
+</kw>
+<status status="PASS" starttime="20230409 11:30:47.951" endtime="20230409 11:30:47.967"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Replace String" library="String">
+<var>${locator.todolist_name}</var>
+<arg>${TODOTASK.TODOLISTNAME.TEXT}</arg>
+<arg>{list_name}</arg>
+<arg>${TODO_LIST[${i}]}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230409 11:30:47.968" level="INFO">${locator.todolist_name} = //div[@id="todo"]//span[contains(@class,'mdl-checkbox__label')][text()="Tracking bug"]</msg>
+<status status="PASS" starttime="20230409 11:30:47.967" endtime="20230409 11:30:47.968"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${locator_todo_dis}</var>
+<arg>${locator.todolist_name}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230409 11:30:47.984" level="INFO">${locator_todo_dis} = Tracking bug</msg>
+<status status="PASS" starttime="20230409 11:30:47.969" endtime="20230409 11:30:47.984"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${locator_todo_list}</arg>
+<arg>${locator_todo_dis}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230409 11:30:47.985" endtime="20230409 11:30:47.985"/>
+</kw>
+<status status="PASS" starttime="20230409 11:30:47.967" endtime="20230409 11:30:47.985"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Replace String" library="String">
+<var>${locator.todolist_name}</var>
+<arg>${TODOTASK.TODOLISTNAME.TEXT}</arg>
+<arg>{list_name}</arg>
+<arg>${TODO_LIST[${i}]}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230409 11:30:47.986" level="INFO">${locator.todolist_name} = //div[@id="todo"]//span[contains(@class,'mdl-checkbox__label')][text()="Design test case"]</msg>
+<status status="PASS" starttime="20230409 11:30:47.985" endtime="20230409 11:30:47.986"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${locator_todo_dis}</var>
+<arg>${locator.todolist_name}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230409 11:30:48.002" level="INFO">${locator_todo_dis} = Design test case</msg>
+<status status="PASS" starttime="20230409 11:30:47.986" endtime="20230409 11:30:48.002"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${locator_todo_list}</arg>
+<arg>${locator_todo_dis}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230409 11:30:48.002" endtime="20230409 11:30:48.003"/>
+</kw>
+<status status="PASS" starttime="20230409 11:30:47.985" endtime="20230409 11:30:48.003"/>
+</iter>
+<status status="PASS" starttime="20230409 11:30:47.931" endtime="20230409 11:30:48.003"/>
+</for>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${TODO_LIST}</arg>
+<arg>${locator_todo_list}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230409 11:30:48.003" endtime="20230409 11:30:48.003"/>
+</kw>
+<status status="PASS" starttime="20230409 11:30:47.898" endtime="20230409 11:30:48.003"/>
+</kw>
+<kw name="Verify can delete todo list and doesn't show in tab todo Tasks" library="todo_task_page">
+<arg>${TODO_LIST}</arg>
+<kw name="Replace String" library="String">
+<var>${locator_delete}</var>
+<arg>${TODOTASK.TODOLISTDELETE.TEXTBUTTON}</arg>
+<arg>{list_name}</arg>
+<arg>${TODO_LIST[${3}]}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230409 11:30:48.004" level="INFO">${locator_delete} = //div[@id="todo"]//span[contains(@class,'mdl-checkbox__label')][text()="Design test case"]//following::button[contains(@class,'mdl-button mdl-js-button mdl-js-ripple-effect delete')][1]</msg>
+<status status="PASS" starttime="20230409 11:30:48.004" endtime="20230409 11:30:48.004"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${locator_delete}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230409 11:30:48.005" level="INFO">Clicking element '//div[@id="todo"]//span[contains(@class,'mdl-checkbox__label')][text()="Design test case"]//following::button[contains(@class,'mdl-button mdl-js-button mdl-js-ripple-effect delete')][1]'.</msg>
+<status status="PASS" starttime="20230409 11:30:48.005" endtime="20230409 11:30:48.037"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${count_todo_listdel}</var>
+<arg>${TODO_LIST}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20230409 11:30:48.037" level="INFO">Length is 4</msg>
+<msg timestamp="20230409 11:30:48.037" level="INFO">${count_todo_listdel} = 4</msg>
+<status status="PASS" starttime="20230409 11:30:48.037" endtime="20230409 11:30:48.037"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${count_todo_listdel1}</var>
+<arg>${count_todo_listdel}-1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230409 11:30:48.038" level="INFO">${count_todo_listdel1} = 3</msg>
+<status status="PASS" starttime="20230409 11:30:48.037" endtime="20230409 11:30:48.038"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>${locator_todo_listdel}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230409 11:30:48.038" level="INFO">${locator_todo_listdel} = []</msg>
+<status status="PASS" starttime="20230409 11:30:48.038" endtime="20230409 11:30:48.038"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>0</value>
+<value>${count_todo_listdel1}</value>
+<iter>
+<var name="${i}">0</var>
+<kw name="Replace String" library="String">
+<var>${locator.todolist_namedel}</var>
+<arg>${TODOTASK.TODOLISTNAME.TEXT}</arg>
+<arg>{list_name}</arg>
+<arg>${TODO_LIST[${i}]}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230409 11:30:48.039" level="INFO">${locator.todolist_namedel} = //div[@id="todo"]//span[contains(@class,'mdl-checkbox__label')][text()="Daily meeting with Dev"]</msg>
+<status status="PASS" starttime="20230409 11:30:48.038" endtime="20230409 11:30:48.039"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${locator_todo_disdel}</var>
+<arg>${locator.todolist_namedel}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230409 11:30:48.055" level="INFO">${locator_todo_disdel} = Daily meeting with Dev</msg>
+<status status="PASS" starttime="20230409 11:30:48.040" endtime="20230409 11:30:48.055"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${locator_todo_listdel}</arg>
+<arg>${locator_todo_disdel}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230409 11:30:48.055" endtime="20230409 11:30:48.055"/>
+</kw>
+<status status="PASS" starttime="20230409 11:30:48.038" endtime="20230409 11:30:48.055"/>
+</iter>
+<iter>
+<var name="${i}">1</var>
+<kw name="Replace String" library="String">
+<var>${locator.todolist_namedel}</var>
+<arg>${TODOTASK.TODOLISTNAME.TEXT}</arg>
+<arg>{list_name}</arg>
+<arg>${TODO_LIST[${i}]}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230409 11:30:48.056" level="INFO">${locator.todolist_namedel} = //div[@id="todo"]//span[contains(@class,'mdl-checkbox__label')][text()="Implement code automate"]</msg>
+<status status="PASS" starttime="20230409 11:30:48.056" endtime="20230409 11:30:48.056"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${locator_todo_disdel}</var>
+<arg>${locator.todolist_namedel}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230409 11:30:48.072" level="INFO">${locator_todo_disdel} = Implement code automate</msg>
+<status status="PASS" starttime="20230409 11:30:48.056" endtime="20230409 11:30:48.072"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${locator_todo_listdel}</arg>
+<arg>${locator_todo_disdel}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230409 11:30:48.073" endtime="20230409 11:30:48.073"/>
+</kw>
+<status status="PASS" starttime="20230409 11:30:48.056" endtime="20230409 11:30:48.073"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Replace String" library="String">
+<var>${locator.todolist_namedel}</var>
+<arg>${TODOTASK.TODOLISTNAME.TEXT}</arg>
+<arg>{list_name}</arg>
+<arg>${TODO_LIST[${i}]}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230409 11:30:48.074" level="INFO">${locator.todolist_namedel} = //div[@id="todo"]//span[contains(@class,'mdl-checkbox__label')][text()="Tracking bug"]</msg>
+<status status="PASS" starttime="20230409 11:30:48.073" endtime="20230409 11:30:48.074"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${locator_todo_disdel}</var>
+<arg>${locator.todolist_namedel}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230409 11:30:48.087" level="INFO">${locator_todo_disdel} = Tracking bug</msg>
+<status status="PASS" starttime="20230409 11:30:48.074" endtime="20230409 11:30:48.087"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${locator_todo_listdel}</arg>
+<arg>${locator_todo_disdel}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230409 11:30:48.087" endtime="20230409 11:30:48.088"/>
+</kw>
+<status status="PASS" starttime="20230409 11:30:48.073" endtime="20230409 11:30:48.088"/>
+</iter>
+<status status="PASS" starttime="20230409 11:30:48.038" endtime="20230409 11:30:48.088"/>
+</for>
+<kw name="Should Not Be Equal" library="BuiltIn">
+<arg>${TODO_LIST}</arg>
+<arg>${locator_todo_listdel}</arg>
+<doc>Fails if the given objects are equal.</doc>
+<status status="PASS" starttime="20230409 11:30:48.088" endtime="20230409 11:30:48.088"/>
+</kw>
+<status status="PASS" starttime="20230409 11:30:48.003" endtime="20230409 11:30:48.088"/>
+</kw>
+<kw name="Verify can click done todo list and list show to task complete" library="todo_task_page">
+<arg>${TODOLISTDATA['TODOLIST1']}</arg>
+<arg>${TODOLISTDATA['TODOLIST2']}</arg>
+<kw name="Replace String" library="String">
+<var>${locator_checkbox1}</var>
+<arg>${TODOTASK.TODOLISTCHECKBOX.CHECKBOX}</arg>
+<arg>{list_name}</arg>
+<arg>${todocomplete1}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230409 11:30:48.090" level="INFO">${locator_checkbox1} = //div[@id="todo"]//span[contains(@class,'mdl-checkbox__label')][text()="Daily meeting with Dev"]//following::span[contains(@class,'mdl-checkbox__ripple-container mdl-js-ripple-effect mdl-ripple--cente...</msg>
+<status status="PASS" starttime="20230409 11:30:48.089" endtime="20230409 11:30:48.090"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${locator_checkbox2}</var>
+<arg>${TODOTASK.TODOLISTCHECKBOX.CHECKBOX}</arg>
+<arg>{list_name}</arg>
+<arg>${todocomplete2}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230409 11:30:48.090" level="INFO">${locator_checkbox2} = //div[@id="todo"]//span[contains(@class,'mdl-checkbox__label')][text()="Implement code automate"]//following::span[contains(@class,'mdl-checkbox__ripple-container mdl-js-ripple-effect mdl-ripple--cent...</msg>
+<status status="PASS" starttime="20230409 11:30:48.090" endtime="20230409 11:30:48.090"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${locator_checkbox1}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230409 11:30:48.090" level="INFO">Clicking element '//div[@id="todo"]//span[contains(@class,'mdl-checkbox__label')][text()="Daily meeting with Dev"]//following::span[contains(@class,'mdl-checkbox__ripple-container mdl-js-ripple-effect mdl-ripple--center')]'.</msg>
+<status status="PASS" starttime="20230409 11:30:48.090" endtime="20230409 11:30:48.122"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230409 11:30:48.623" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20230409 11:30:48.122" endtime="20230409 11:30:48.623"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${locator_checkbox2}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230409 11:30:48.623" level="INFO">Clicking element '//div[@id="todo"]//span[contains(@class,'mdl-checkbox__label')][text()="Implement code automate"]//following::span[contains(@class,'mdl-checkbox__ripple-container mdl-js-ripple-effect mdl-ripple--center')]'.</msg>
+<status status="PASS" starttime="20230409 11:30:48.623" endtime="20230409 11:30:48.653"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>0.5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230409 11:30:49.153" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20230409 11:30:48.653" endtime="20230409 11:30:49.153"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${COMPLETETASK.COMPLETETAB.TABMENU}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230409 11:30:49.153" level="INFO">Clicking element '//a[contains(@class,'mdl-tabs__tab')][text()="Completed"]'.</msg>
+<status status="PASS" starttime="20230409 11:30:49.153" endtime="20230409 11:30:49.184"/>
+</kw>
+<status status="PASS" starttime="20230409 11:30:48.088" endtime="20230409 11:30:49.184"/>
+</kw>
+<kw name="Verify list done show on tab complete is correct" library="complete_page">
+<arg>${TODOLISTDATA['TODOLIST1']}</arg>
+<arg>${TODOLISTDATA['TODOLIST2']}</arg>
+<kw name="Replace String" library="String">
+<var>${locator_list_complete1}</var>
+<arg>${COMPLETETASK.COMPLETELIST.TEXT}</arg>
+<arg>{list_name}</arg>
+<arg>${todocomplete1}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230409 11:30:49.186" level="INFO">${locator_list_complete1} = //span[contains(@class,'mdl-list__item-primary-content')][text()="Daily meeting with Dev"]</msg>
+<status status="PASS" starttime="20230409 11:30:49.186" endtime="20230409 11:30:49.186"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${locator_list_complete2}</var>
+<arg>${COMPLETETASK.COMPLETELIST.TEXT}</arg>
+<arg>{list_name}</arg>
+<arg>${todocomplete2}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230409 11:30:49.186" level="INFO">${locator_list_complete2} = //span[contains(@class,'mdl-list__item-primary-content')][text()="Implement code automate"]</msg>
+<status status="PASS" starttime="20230409 11:30:49.186" endtime="20230409 11:30:49.186"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${locator_complete_dis1}</var>
+<arg>${locator_list_complete1}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230409 11:30:49.202" level="INFO">${locator_complete_dis1} = doneDaily meeting with Dev</msg>
+<status status="PASS" starttime="20230409 11:30:49.186" endtime="20230409 11:30:49.202"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${locator_complete_dis2}</var>
+<arg>${locator_list_complete2}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230409 11:30:49.218" level="INFO">${locator_complete_dis2} = doneImplement code automate</msg>
+<status status="PASS" starttime="20230409 11:30:49.203" endtime="20230409 11:30:49.218"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${locator_complete_dis1}</var>
+<arg>${locator_complete_dis1}</arg>
+<arg>done</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230409 11:30:49.219" level="INFO">${locator_complete_dis1} = Daily meeting with Dev</msg>
+<status status="PASS" starttime="20230409 11:30:49.218" endtime="20230409 11:30:49.219"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${locator_complete_dis2}</var>
+<arg>${locator_complete_dis2}</arg>
+<arg>done</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230409 11:30:49.219" level="INFO">${locator_complete_dis2} = Implement code automate</msg>
+<status status="PASS" starttime="20230409 11:30:49.219" endtime="20230409 11:30:49.219"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${locator_complete_dis1}</arg>
+<arg>${todocomplete1}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230409 11:30:49.220" endtime="20230409 11:30:49.220"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${locator_complete_dis2}</arg>
+<arg>${todocomplete2}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230409 11:30:49.220" endtime="20230409 11:30:49.220"/>
+</kw>
+<status status="PASS" starttime="20230409 11:30:49.185" endtime="20230409 11:30:49.220"/>
+</kw>
+<kw name="Verify delete complete list on complete tab is correct" library="complete_page">
+<arg>${TODOLISTDATA['TODOLIST2']}</arg>
+<kw name="Replace String" library="String">
+<var>${locator_deletelist_complete}</var>
+<arg>${COMPLETETASK.DELETELISTDONE.MATERIAL}</arg>
+<arg>{list_name}</arg>
+<arg>${todocomplete2}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230409 11:30:49.221" level="INFO">${locator_deletelist_complete} = //span[contains(@class,'mdl-list__item-primary-content')][text()="Implement code automate"]//following-sibling::button</msg>
+<status status="PASS" starttime="20230409 11:30:49.221" endtime="20230409 11:30:49.221"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${locator_deletelist_complete}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230409 11:30:49.222" level="INFO">Clicking element '//span[contains(@class,'mdl-list__item-primary-content')][text()="Implement code automate"]//following-sibling::button'.</msg>
+<status status="PASS" starttime="20230409 11:30:49.221" endtime="20230409 11:30:49.251"/>
+</kw>
+<kw name="Page Should Not Contain Element" library="SeleniumLibrary">
+<arg>${locator_deletelist_complete}</arg>
+<doc>Verifies that element ``locator`` is not found on the current page.</doc>
+<msg timestamp="20230409 11:30:49.257" level="INFO">Current page does not contain element '//span[contains(@class,'mdl-list__item-primary-content')][text()="Implement code automate"]//following-sibling::button'.</msg>
+<status status="PASS" starttime="20230409 11:30:49.251" endtime="20230409 11:30:49.257"/>
+</kw>
+<status status="PASS" starttime="20230409 11:30:49.220" endtime="20230409 11:30:49.257"/>
+</kw>
+<kw name="Default test teardown" library="common_keywords" type="TEARDOWN">
+<doc>Capture screenshot for every fail test case</doc>
+<kw name="Run Keyword If Test Failed" library="BuiltIn">
+<arg>SeleniumLibrary.Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" starttime="20230409 11:30:49.257" endtime="20230409 11:30:49.257"/>
+</kw>
+<status status="PASS" starttime="20230409 11:30:49.257" endtime="20230409 11:30:49.257"/>
+</kw>
+<tag>TC_E2E</tag>
+<status status="PASS" starttime="20230409 11:30:45.603" endtime="20230409 11:30:49.257"/>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230409 11:30:49.258" endtime="20230409 11:30:51.334"/>
+</kw>
+<status status="PASS" starttime="20230409 11:30:45.232" endtime="20230409 11:30:51.334"/>
+</suite>
+<status status="PASS" starttime="20230409 11:30:45.215" endtime="20230409 11:30:51.336"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">TC_E2E</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="TC E2E todolist">Tests.TC E2E todolist</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
